@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  postgres_showcase_platform:
+    container_name: postgres_showcase_platform
+    image: postgres:14
+    ports:
+      - "9233:5432"
+    hostname: postgres_showcase_platform
+    environment:
+      - POSTGRES_PASSWORD=local
+      - POSTGRES_USER=local
+      - POSTGRES_DB=showcase-platform-db
+    volumes:
+      - ./database/postgres/initalize.sql:/docker-entrypoint-initdb.d/initalize.sql
